@@ -1,0 +1,21 @@
+v <- runif(3,0,1)
+x <- v[1]
+y<-v[2]
+z<-v[3]
+A=array(c(1,x-1,0,0,-x,1,x-1,0,0,-x,1,x-1,0,0,-x,1),c(4,4))
+b=c(0,0,0,x)
+solutionsA = solve(A,b)
+B=array(c(1,y-1,0,0,-y,1,y-1,0,0,-y,1,y-1,0,0,-y,1),c(4,4))
+c=c(0,0,0,y)
+solutionsB = solve(B,c)
+C=array(c(1,z-1,0,0,-z,1,z-1,0,0,-z,1,z-1,0,0,-z,1),c(4,4))
+d=c(0,0,0,z)
+solutionsC = solve(C,d)
+graphA = c(0,solutionsA[1],solutionsA[2],solutionsA[3],solutionsA[4],1)
+graphB = c(0,solutionsB[1],solutionsB[2],solutionsB[3],solutionsB[4],1)
+graphC = c(0,solutionsC[1],solutionsC[2],solutionsC[3],solutionsC[4],1)
+plot(0:5,graphA,xlim=c(0,5),ylim=c(0,1),xlab="i",ylab="probability",type="o",col="blue")
+points(0:5,graphB,col="red",pch="*")
+lines(0:5,graphB,col="red",lty=2)
+points(0:5,graphC,col="black",pch="+")
+lines(0:5,graphC,col="black",lty=2)
